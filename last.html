@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>💖 Thank You, My Friend</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', cursive;
+      background: linear-gradient(to bottom right, #ffe6f0, #e1f5fe);
+      overflow-x: hidden;
+    }
+
+    nav {
+      background-color: #ec407a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    h1 {
+      color: #ad1457;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+    }
+
+    .quote-slider {
+      max-width: 700px;
+      margin: 40px auto;
+      font-size: 22px;
+      text-align: center;
+      color: #4a148c;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff3f8;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background-color: #f8bbd0;
+      color: #4a148c;
+      text-align: center;
+      padding: 12px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 15px;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<nav>💖 To My Forever Friend 💌</nav>
+
+<div class="hearts" id="hearts"></div>
+
+<h1>Thank You for Being in My Life 💕</h1>
+
+<div class="quote-slider" id="quoteBox">
+  “Friends are the family we choose for ourselves.” 💫
+</div>
+<center><a href="go mams.html" class="btn btn-warning btn-lg mt-2">Surprice</a></center>
+<footer>💌 This is not the end… It’s just the beginning of many memories to come! – From Dharshini Priya 🌸</footer>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/28/audio_0a97cf631f.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  // Heart animation generator
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+    document.getElementById("hearts").appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+  setInterval(createHeart, 300);
+
+  // Quotes slider
+  const quotes = [
+    "“Friends are the family we choose for ourselves.” 💫",
+    "“A best friend is someone who makes you laugh even when you think you'll never smile again.” 😂💖",
+    "“Thank you for accepting me at my worst, celebrating me at my best.” 🥹🌷",
+    "“Real friendship isn’t about being inseparable, it’s about being apart and still nothing changes.” 💕",
+    "“Every page of our friendship is my favorite chapter.” 📖💖"
+  ];
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % quotes.length;
+    document.getElementById("quoteBox").innerText = quotes[index];
+  }, 4000);
+</script>
+
+</body>
+</html>
